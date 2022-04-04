@@ -1,5 +1,11 @@
 # 0x16. C - Simple Shell
 
+# Things that we need on our readme
+
+[README.md] Does the readme have a valid description of the shell? What it does and how to use it?
+
+[README.md] Does the readme show at least one example on how to use the shell?
+
 ### Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -30,27 +36,22 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 	- The main difference between system call and function call is that a system call is a request for the kernel to access a resource while a function call is a request made by a program to perform a specific task.
 
 - How to create processes
+	- A new process can be created by the fork() system call. The new process consists of a copy of the address space of the original process. fork() creates new process from existing process. Existing process is called the parent process and the process is created newly is called child process.
+
 - What are the three prototypes of `main`
+	- `int main(void);`
+	- `int main(int argc, char **argv);`
+	- `int main(int argc, char *argv[], char *envp[]);`
+
 - How does the shell use the `PATH` to find the programs
 	- The shell tries each directory in the PATH , left-to-right, and runs the first executable program with the matching command name that it finds. Slashes in the pathname prevent the shell from using PATH to look up the command name, so the shell executes /bin/date directly.
 
 - How to execute another program with the `execve` system call
+	- execve() executes the program pointed to by filename. filename must be either a binary executable, or a script starting with a line of the form "#! interpreter [arg]". In the latter case, the interpreter must be a valid pathname for an executable which is not itself a script, which will be invoked as interpreter [arg] filename.
+
 - How to suspend the execution of a process until one of its children terminates
 	-	Suspends the calling process until any one of its child processes ends. More precisely, wait() suspends the calling process until the system obtains status information on the ended child. If the system already has status information on a completed child process when wait() is called, wait() returns immediately.
 
 - What is `EOF` / “end-of-file”?
 	- Is a condition in a computer operating system where no more data can be read from a data source.
-
-
-# Things that we need on our readme
-
-[README.md] Does the Readme have a valid title:
-
-There is a title AND
-The title makes sense
-
-[README.md] Does the readme have a valid description of the shell? What it does and how to use it?
-
-[README.md] Does the readme show at least one example on how to use the shell?
-
 

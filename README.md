@@ -1,10 +1,20 @@
 # 0x16. C - Simple Shell
 
-# Things that we need on our readme
+As the first objective of this project, we have to design a "Basic shell" applying the topics that we learned during our first trimester as Holberton students.
 
-[README.md] Does the readme have a valid description of the shell? What it does and how to use it?
+## What it does and how to use it?
 
-[README.md] Does the readme show at least one example on how to use the shell?
+The shell is our interface to the operating system. It acts as a command interpreter, it takes each command and passes it to the operating system. It then displays the results of this operation on our screen.
+First, the shell waits for the user input, when the shell has to receive it, it analyzes the input and defines what it is if it is a command, and what arguments it has? Does it have pipe or redirection? then the shell looks for the command, depending on which command it is, it looks for it in the PATH or the files, calls the default function of that command, and returns the result.
+
+### Syntax
+
+```
+command name [arguments] [pipe/redirection] [another arguments]
+
+Example:
+cat file_name | wc -l
+```
 
 ### Learning Objectives
 

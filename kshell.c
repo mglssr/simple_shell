@@ -10,9 +10,9 @@ int main(void)
 	size_t buffersize = 0;
 	char *buffer = NULL;
 	const char sp[] = " \n\t";
-	char *tok = NULL;
-	char *argv[];
-	int i = 0;
+	char **argv;
+	pid_t child_pid;
+	//int i = 0;
 
 	while (1)
 	{
@@ -35,12 +35,23 @@ int main(void)
 		{
 			argv = _strtok(buffer);
 		}
-
-		execmd(argv);
-		free(tok);
+		//aca va lo del path
+		child_pid = fork();
+		if (child_pid == -1)
+		{
+			perror("Error:");
+			return(1);
+		}
+		else if (child_pid == 0)
+		{
+			execve(argv[0], argv, NULL);
+			free(argv);
+		}
+		else
+			wait(NULL);
+	free(buffer);	
 	}
-	free(buffer);
-	return (buffersize);
+	return (0);
 }
 
 /**
@@ -64,6 +75,7 @@ int prompt(void)
 		ftime = 0;
 	}
 	printf("\033[0;31mNax$ \033[0m");
+return (0);
 }
 
 /**
@@ -73,4 +85,5 @@ int prompt(void)
 int prompt2(void)
 {
     write(1, "Nax$ ", 5);
+return (0);
 }

@@ -15,10 +15,17 @@ int spaces_count(char *buffer)
 	{
 		if (buffer[i] == 32)
 		{
-			count++;
-			i++;
+			if(buffer[i + 1] == 32)
+				i++;
+				continue;
+			else
+				count++;
+				i++;
 		}
+		else
+			i++;
 	}
+count += 2;
 return (count);
 }
 
@@ -40,7 +47,6 @@ int colons_count(char *path)
             count++;
             i++;
         }
-
 	}
 return (count);
 }

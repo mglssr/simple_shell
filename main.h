@@ -7,21 +7,6 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-/**
-* struct tokens - single linked list of tokens
-* @str: string
-* @len: length ofte string
-* @next: points to the next node
-*
-* Description: linked list of tokens
-*/
-typedef struct tokens
-{
-char *str;
-unsigned int len;
-struct tokens *next;
-} token_s;
-
 int execmd(char **argv);
 int genv(void);
 int prompt(void);
@@ -33,5 +18,8 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 int _putchar(char c);
+char **_strtok(char *buffer);
+int spaces_count(char *buffer);
+int colons_count(char *path);
 
 #endif

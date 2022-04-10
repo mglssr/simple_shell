@@ -24,15 +24,19 @@ char **_strtok(char *buffer)
 	{
 		argv[i] = token;
 
-	if (argv == NULL)
-		{
-			free(argv);
-			free(buffer);
-			return(NULL);
-		}
+		if (argv == NULL)
+			{
+				free(argv);
+				free(token);
+				free(buffer);
+				return(NULL);
+			}
 		token = strtok(NULL, delim);
 		i++;
 	}
+	/**free(argv);
+	free(buffer);*/
+
 	argv[i] = NULL;
 	return (argv);
 }

@@ -35,6 +35,7 @@ int main(void)
 		{
 			argv = _strtok(buffer);
 		}
+		printf(" pid del padre [%u] \n", getpid());
 		/**aca va lo del path*/
 		child_pid = fork();
 		if (child_pid == -1)
@@ -44,6 +45,7 @@ int main(void)
 		}
 		else if (child_pid == 0)
 		{
+			printf("pid del hijo [%u]\n", getpid());
 			execve(argv[0], argv, NULL);
 			free(argv);
 		}

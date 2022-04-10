@@ -12,12 +12,17 @@ int main(void)
 	char *buffer = NULL;
 	char **argv;
 	pid_t child_pid;
-	/**int i = 0;*/
+	int i = 0, status = 0;
 
 	while (1)
 	{
 		prompt();
-		getline(&buffer, &buffersize, stdin);
+		i = getline(&buffer, &buffersize, stdin);
+
+		if (i == -1)
+		{
+			break;
+		}
 
 		if (buffer[0] == '\n')
 			continue;
@@ -28,14 +33,12 @@ int main(void)
 		}
 		else if(_strcmp(buffer, "exit") == 0)
 		{
-			free(buffer);
 			break;
 		}
 		else
 		{
 			argv = _strtok(buffer);
 		}
-		printf(" pid del padre [%u] \n", getpid());
 		/**aca va lo del path*/
 		child_pid = fork();
 		if (child_pid == -1)
@@ -45,15 +48,16 @@ int main(void)
 		}
 		else if (child_pid == 0)
 		{
-			printf("pid del hijo [%u]\n", getpid());
 			execve(argv[0], argv, NULL);
 			free(argv);
 		}
 		else
-			wait(NULL);
-	free(argv);
-	free(buffer);
+		{
+			wait(&status);
+			free(argv);
+		}
 	}
+	free(buffer);
 	return (0);
 }
 

@@ -34,8 +34,8 @@ char **_strtok(char *buffer)
 		token = strtok(NULL, delim);
 		i++;
 	}
-	/**free(argv);
-	free(buffer);*/
+	free(argv);
+	free(buffer);
 
 	argv[i] = NULL;
 	return (argv);

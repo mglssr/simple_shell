@@ -1,20 +1,12 @@
 #include "main.h"
 
 /**
-<<<<<<< HEAD
-* _strtok - function that tokenize 
-=======
-* sepcount - function that counts spaces between a string of arguments
->>>>>>> cd1ac36c4ca8a7aeb444720fc0df26dbb5f5e6e5
-* @buffer: stringof arguments
-* Return: the number of spaces between arguments, plus 2
+* _strtok - function that tokenize a given string
+* @buffer: string
+* Return: a double pointer
 */
 
-<<<<<<< HEAD
 char **_strtok(char *buffer)
-=======
-int sepcount(char *buffer)
->>>>>>> cd1ac36c4ca8a7aeb444720fc0df26dbb5f5e6e5
 {
 	char **argv;
 	char *token;
@@ -43,3 +35,4 @@ int sepcount(char *buffer)
 	}
 	argv[i] = NULL;
 	return (argv);
+}

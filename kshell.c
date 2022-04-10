@@ -5,21 +5,21 @@
 *prints it on the next line.
 *function that splits a string and returns an array of each word of the string.
 */
+
 int main(void)
 {
 	size_t buffersize = 0;
 	char *buffer = NULL;
-	const char sp[] = " \n\t";
 	char **argv;
 	pid_t child_pid;
-	//int i = 0;
+	/**int i = 0;*/
 
 	while (1)
 	{
 		prompt();
 		getline(&buffer, &buffersize, stdin);
 
-		if (buffer == '\n')
+		if (buffer[0] == '\n')
 			continue;
 
 		if (_strcmp(buffer, "env") == 0)
@@ -35,7 +35,7 @@ int main(void)
 		{
 			argv = _strtok(buffer);
 		}
-		//aca va lo del path
+		/**aca va lo del path*/
 		child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -49,7 +49,8 @@ int main(void)
 		}
 		else
 			wait(NULL);
-	free(buffer);	
+	free(argv);
+	free(buffer);
 	}
 	return (0);
 }
@@ -75,7 +76,7 @@ int prompt(void)
 		ftime = 0;
 	}
 	printf("\033[0;31mNax$ \033[0m");
-return (0);
+	return (0);
 }
 
 /**
@@ -85,5 +86,5 @@ return (0);
 int prompt2(void)
 {
     write(1, "Nax$ ", 5);
-return (0);
+	return (0);
 }

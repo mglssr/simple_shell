@@ -16,17 +16,21 @@ int spaces_count(char *buffer)
 		if (buffer[i] == 32)
 		{
 			if(buffer[i + 1] == 32)
+			{
 				i++;
 				continue;
+			}
 			else
+			{
 				count++;
 				i++;
+			}
 		}
 		else
 			i++;
 	}
-count += 2;
-return (count);
+	count += 2;
+	return (count);
 }
 
 /**
@@ -50,3 +54,20 @@ int colons_count(char *path)
 	}
 return (count);
 }
+
+/**
+*gevn - getting environment var
+*Return: 0
+*/
+int genv(void)
+{
+    extern char **environ;
+    char **i = environ;
+
+    while (!*i)
+    {
+        printf("%s\n", *i);
+    }
+    return (0);
+}
+

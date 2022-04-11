@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <signal.h>
 
+int fwex(char **argv);
 int execmd(char **argv);
 int genv(void);
 extern char **environ;

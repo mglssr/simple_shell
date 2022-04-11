@@ -8,5 +8,8 @@
 void ig_ctrlc(int signal)
 {
 	if (signal == SIGINT)
-		write(1, "\n", 2);
+		{
+			write(1, "\n", 2);
+			prompt2();
+		}
 }

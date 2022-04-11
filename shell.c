@@ -16,20 +16,27 @@ int main(void)
 	while (1)
 	{
 		signal(SIGINT, ig_ctrlc);
-		if (isatty(STDIN_FILENO) == 1)
-			prompt2();
+		prompt2();
 			
 		i = getline(&buffer, &buffersize, stdin);
 		if (i == -1)
 			break;
 		if (buffer[0] == '\n')
 			continue;
-		if (_strcmp(buffer, "exit") == 0)
-			break;
-		if (_strcmp(buffer, "env") == 0)
+		
+		argv = _strtok(buffer);
+		if (_strcmp(argv[0], "exit") == 0)
+		{
+			free(argv);
+			free(buffer);
+			exit(0);
+		}
+		/**if (_strcmp(buffer, "exit") == 0)
+			exit(0);**/
+		if (_strcmp(argv[0], "env") == 0)
 			genv();
-		else
-			argv = _strtok(buffer);
+		/**else
+			argv = _strtok(buffer);**/
 		/**aca va lo del path*/
 		child_pid = fork();
 		if (child_pid == -1)
@@ -53,35 +60,12 @@ int main(void)
 }
 
 /**
-*prompt - shell start + prompt
-*Return: 0
-*/
-int prompt(void)
-{
-	static int ftime = 1;
-
-	if (ftime)
-	{
-		system("clear");
-		sleep(0.1);
-		printf("\033[0;31m*************************HELLO   USER*************************\n");
-		sleep(1);
-		printf("************************WELCOME TO NAX************************\n");
-		sleep(1);
-		printf("**************WE HOPE YOU HAVE A GOOD TIME CODING*************\n\033[0m");
-		sleep(1);
-		ftime = 0;
-	}
-	printf("\033[0;31mNax$ \033[0m");
-	return (0);
-}
-
-/**
 *prompt2 - shell start + prompt without printf
 *Return: 0
 */
 int prompt2(void)
 {
-	write(1, "Nax$ ", 5);
+	if (isatty(STDIN_FILENO) == 1)
+		write(1, "Nax$ ", 5);
 	return (0);
 }

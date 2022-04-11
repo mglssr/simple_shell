@@ -61,13 +61,11 @@ int prompt(void)
 	{
 		system("clear");
 		sleep(0.1);
-		printf("\033[0;31m*************************HELLO   USER
-		*************************\n");
+		printf("\033[0;31m*********************HELLO   USER********************\n");
 		sleep(1);
-		printf("************************WELCOME TO NAX************************\n");
+		printf("********************WELCOME TO NAX*******************\n");
 		sleep(1);
-		printf("**************WE HOPE YOU HAVE A GOOD TIME CODING
-		*************\n\033[0m");
+		printf("*********WE HOPE YOU HAVE A GOOD TIME CODING*********\n\033[0m");
 		sleep(1);
 		ftime = 0;
 	}

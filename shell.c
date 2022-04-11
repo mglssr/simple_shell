@@ -27,7 +27,9 @@ int main(void)
 		argv = _strtok(buffer);
 		if (_strcmp(argv[0], "exit") == 0)
 		{
-			break;
+			free(argv);
+			free(buffer);
+			exit(0);
 		}
 		if (_strcmp(argv[0], "env") == 0)
 			genv();
@@ -49,7 +51,6 @@ int main(void)
 			free(argv);
 		}
 	}
-	free(argv);
 	free(buffer);
 	return (0);
 }

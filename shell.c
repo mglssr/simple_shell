@@ -15,7 +15,10 @@ int main(void)
 
 	while (1)
 	{
-		prompt();
+		signal(SIGINT, ig_ctrlc);
+		if (isatty(STDIN_FILENO) == 1)
+			prompt2();
+			
 		i = getline(&buffer, &buffersize, stdin);
 		if (i == -1)
 			break;
@@ -61,13 +64,11 @@ int prompt(void)
 	{
 		system("clear");
 		sleep(0.1);
-		printf("\033[0;31m*************************HELLO   USER
-		*************************\n");
+		printf("\033[0;31m*************************HELLO   USER*************************\n");
 		sleep(1);
 		printf("************************WELCOME TO NAX************************\n");
 		sleep(1);
-		printf("**************WE HOPE YOU HAVE A GOOD TIME CODING
-		*************\n\033[0m");
+		printf("**************WE HOPE YOU HAVE A GOOD TIME CODING*************\n\033[0m");
 		sleep(1);
 		ftime = 0;
 	}

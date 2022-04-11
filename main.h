@@ -23,5 +23,6 @@ int _putchar(char c);
 char **_strtok(char *buffer);
 int spaces_count(char *buffer);
 int colons_count(char *path);
+void ig_ctrlc(int signal);
 
 #endif

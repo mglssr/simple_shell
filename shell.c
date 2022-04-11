@@ -52,7 +52,7 @@ int prompt2(void)
 
 /**
  * fwex - fork+wait+execve
- *
+ * @argv: argv
  * Return: Always 0.
  */
 int fwex(char **argv)

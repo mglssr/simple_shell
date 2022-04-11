@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <signal.h>
 
 int execmd(char **argv);
 int genv(void);

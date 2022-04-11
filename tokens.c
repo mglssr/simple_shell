@@ -15,22 +15,22 @@ char **_strtok(char *buffer)
 	int i = 0;
 
 	nmemb = spaces_count(buffer);
-	argv = calloc(nmemb, sizeof(char*));
+	argv = calloc(nmemb, sizeof(char *));
 
 	token = strtok(buffer, "\n");
 	token = strtok(buffer, delim);
-	
-	while(token != NULL)
+
+	while (token != NULL)
 	{
 		argv[i] = token;
 
 		if (argv == NULL)
-			{
-				free(argv);
-				free(token);
-				free(buffer);
-				return(NULL);
-			}
+		{
+			free(argv);
+			free(token);
+			free(buffer);
+			return (NULL);
+		}
 		token = strtok(NULL, delim);
 		i++;
 	}

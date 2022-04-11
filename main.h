@@ -10,7 +10,7 @@
 
 int execmd(char **argv);
 int genv(void);
-extern char** environ;
+extern char **environ;
 int prompt(void);
 int prompt2(void);
 int execmd(char **argv);

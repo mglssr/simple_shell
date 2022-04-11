@@ -31,12 +31,8 @@ int main(void)
 			free(buffer);
 			exit(0);
 		}
-		/**if (_strcmp(buffer, "exit") == 0)
-			exit(0);**/
 		if (_strcmp(argv[0], "env") == 0)
 			genv();
-		/**else
-			argv = _strtok(buffer);**/
 		/**aca va lo del path*/
 		child_pid = fork();
 		if (child_pid == -1)

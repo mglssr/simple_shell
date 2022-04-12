@@ -1,9 +1,41 @@
-MANUAL
+SIMPLE SHELL MAN
 
-Name
-Synopsis
-Description
+NAME
+       Simple shell - hsh
+
+COMPILING
+       gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+EXECUTING
+       ./hsh
+SYNOPSIS
+       Nax$ [command_name] [arguments]
+
+DESCRIPTION
+       The hsh is our implementation of a command interpreter that executes
+			 different commands read from the standard input.
+			 Our shell is based on the original UNIX shell written by Ken Thompson.
+
 OPTIONS
-OPERANDS
-USAGE
+       exit - allows you to exit the shell.
+       env - environmental variables are listed.
 
+USAGE
+       hsh shell can be run in two different ways, the interactive mode where "Nax$" will appear for
+			 the user to execute a command and this will be repeated until we end the hsh process 
+			 using exit or ctrl + d, or there is also the non interactive mode where you can send the output 
+			 of a command as an input to the ./hsh program with the pipe command.
+
+EXAMPLE
+       Interactive mode
+												./hsh
+       									Nax$ ls
+       This will show you the list of files or directories that you have in your current directory.
+
+       Non interactive mode
+       								  echo "ls" | ./hsh
+       This will show you the list of files or directories that you have in your current directory
+		   in a non interactive way.
+
+AUTHORS
+       Tatiana Fernández and Maia Iglesias

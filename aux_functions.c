@@ -61,12 +61,13 @@ int colons_count(char *path)
 */
 int genv(void)
 {
-	char **i = environ;
+	unsigned int c = 0, i = 0;
 
-	while (!*i)
+	for (; environ[i] != NULL; i++)
 	{
-		printf("%s\n", *i);
+		write(1, environ[c], _strlen(environ[c]));
+		_putchar('\n');
+		c++;
 	}
 	return (0);
 }
-
